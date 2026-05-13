@@ -1,9 +1,9 @@
-package com.example.beautysalonbookingsystem.service;
+package org.example.beutysalonsystem.service;
 
-import com.example.beautysalonbookingsystem.model.FullTimeStaff;
-import com.example.beautysalonbookingsystem.model.PartTimeStaff;
-import com.example.beautysalonbookingsystem.model.Staff;
-import com.example.beautysalonbookingsystem.repository.StaffRepository;
+import org.example.beutysalonsystem.model.FullTimeStaff;
+import org.example.beutysalonsystem.model.PartTimeStaff;
+import org.example.beutysalonsystem.model.Staff;
+import org.example.beutysalonsystem.repository.StaffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

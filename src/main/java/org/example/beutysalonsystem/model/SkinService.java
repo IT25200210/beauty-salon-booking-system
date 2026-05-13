@@ -1,4 +1,4 @@
-package com.example.beautysalonbookingsystem.model;
+package org.example.beutysalonsystem.model;
 
 import jakarta.persistence.*;
 

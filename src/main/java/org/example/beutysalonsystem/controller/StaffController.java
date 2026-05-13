@@ -1,7 +1,7 @@
-package com.example.beautysalonbookingsystem.controller;
+package org.example.beutysalonsystem.controller;
 
-import com.example.beautysalonbookingsystem.model.Staff;
-import com.example.beautysalonbookingsystem.service.StaffService;
+import org.example.beutysalonsystem.model.Staff;
+import org.example.beutysalonsystem.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
