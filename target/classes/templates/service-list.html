@@ -9,21 +9,13 @@
         .navbar-brand { font-weight:700; color:#C9A84C !important; }
         .card { background:#1e1e1e; border:1px solid #333; border-radius:12px; }
         .table { color:#d0d0d0; }
-        .table thead th { background:#252525; color:#888; font-size:0.75rem;
-          letter-spacing:2px; text-transform:uppercase; border-color:#333; }
+        .table thead th { background:#252525; color:#888; font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; border-color:#333; }
         .table tbody td { border-color:#2a2a2a; vertical-align:middle; }
-        .btn-gold { background:linear-gradient(135deg,#C9A84C,#e8c96a);
-                   color:#1a1a1a; font-weight:600; border:none; }
-        .badge-active { background:rgba(40,167,69,0.15); color:#5cb85c;
-          border:1px solid rgba(40,167,69,0.3); border-radius:20px;
-          padding:0.2rem 0.6rem; font-size:0.72rem; }
-        .badge-inactive { background:rgba(220,53,69,0.15); color:#f87171;
-          border:1px solid rgba(220,53,69,0.3); border-radius:20px;
-          padding:0.2rem 0.6rem; font-size:0.72rem; }
-        .search-input { background:#2c2c2c; border:1px solid #444; color:#e0e0e0;
-          border-radius:8px; padding:0.5rem 1rem; }
-        .search-input:focus { border-color:#C9A84C; outline:none;
-          box-shadow:0 0 0 3px rgba(201,168,76,0.1); background:#2c2c2c; color:#fff; }
+        .btn-gold { background:linear-gradient(135deg,#C9A84C,#e8c96a); color:#1a1a1a; font-weight:600; border:none; }
+        .badge-active { background:rgba(40,167,69,0.15); color:#5cb85c; border:1px solid rgba(40,167,69,0.3); border-radius:20px; padding:0.2rem 0.6rem; font-size:0.72rem; }
+        .badge-inactive { background:rgba(220,53,69,0.15); color:#f87171; border:1px solid rgba(220,53,69,0.3); border-radius:20px; padding:0.2rem 0.6rem; font-size:0.72rem; }
+        .search-input { background:#2c2c2c; border:1px solid #444; color:#e0e0e0; border-radius:8px; padding:0.5rem 1rem; }
+        .search-input:focus { border-color:#C9A84C; outline:none; box-shadow:0 0 0 3px rgba(201,168,76,0.1); background:#2c2c2c; color:#fff; }
     </style>
 </head>
 <body>
@@ -43,14 +35,11 @@
             <h3 class="mb-0 fw-bold">Service Management</h3>
             <small style="color:#777;">Manage salon services</small>
         </div>
-        <a th:href="@{/services/add}" class="btn btn-gold">
-            <i class="bi bi-plus-lg me-1"></i>Add Service
-        </a>
+        <a th:href="@{/services/add}" class="btn btn-gold">+ Add Service</a>
     </div>
     <form th:action="@{/services/search}" method="get" class="mb-3">
         <div class="d-flex gap-2">
-            <input type="text" name="keyword" class="search-input flex-grow-1"
-                   th:value="${keyword}" placeholder="Search by name or category..."/>
+            <input type="text" name="keyword" class="search-input flex-grow-1" th:value="${keyword}" placeholder="Search by name or category..."/>
             <button type="submit" class="btn btn-gold px-3">Search</button>
             <a th:href="@{/services}" class="btn btn-outline-secondary">Clear</a>
         </div>
@@ -74,21 +63,12 @@
                     <td th:text="${svc.category}"></td>
                     <td th:text="${svc.duration}"></td>
                     <td th:text="${svc.price}"></td>
-                    <td>
-              <span th:class="${'badge-' + svc.status.toLowerCase()}"
-                    th:text="${svc.status}"></span>
-                    </td>
+                    <td><span th:class="${'badge-' + svc.status.toLowerCase()}" th:text="${svc.status}"></span></td>
                     <td>
                         <div class="d-flex gap-1">
-                            <a th:href="@{/services/detail/{id}(id=${svc.id})}"
-                               class="btn btn-sm" style="background:rgba(100,180,255,0.1);color:#7ab8f5;">
-                                View</a>
-                            <a th:href="@{/services/edit/{id}(id=${svc.id})}"
-                               class="btn btn-sm" style="background:rgba(201,168,76,0.1);color:#C9A84C;">
-                                Edit</a>
-                            <a th:href="@{/services/delete/{id}(id=${svc.id})}"
-                               class="btn btn-sm" style="background:rgba(220,53,69,0.1);color:#f87171;"
-                               onclick="return confirm('Delete this service?')">Delete</a>
+                            <a th:href="@{/services/detail/{id}(id=${svc.id})}" class="btn btn-sm" style="background:rgba(100,180,255,0.1);color:#7ab8f5;">View</a>
+                            <a th:href="@{/services/edit/{id}(id=${svc.id})}" class="btn btn-sm" style="background:rgba(201,168,76,0.1);color:#C9A84C;">Edit</a>
+                            <a th:href="@{/services/delete/{id}(id=${svc.id})}" class="btn btn-sm" style="background:rgba(220,53,69,0.1);color:#f87171;" onclick="return confirm('Delete this service?')">Delete</a>
                         </div>
                     </td>
                 </tr>
