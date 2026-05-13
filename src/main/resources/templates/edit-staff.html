@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Edit Staff | Lumiere</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+        body { background:#141414; color:#e0e0e0; font-family:'Segoe UI',sans-serif; }
+        .card { background:#1e1e1e; border:1px solid #333; border-radius:16px; }
+        .form-label { font-size:0.72rem; letter-spacing:2px; text-transform:uppercase; color:#888; }
+        .form-control,.form-select { background:#2c2c2c; border:1px solid #444;
+          color:#e0e0e0; border-radius:8px; }
+        .form-control:focus,.form-select:focus { background:#2c2c2c; border-color:#C9A84C;
+          color:#fff; box-shadow:0 0 0 3px rgba(201,168,76,0.12); }
+        .form-select option { background:#2c2c2c; }
+        .btn-gold { background:linear-gradient(135deg,#C9A84C,#e8c96a);
+                   color:#1a1a1a; font-weight:600; border:none; }
+    </style>
+</head>
+<body>
+<div class="container py-5" style="max-width:600px;">
+    <a th:href="@{/staff}" class="text-decoration-none mb-4 d-block" style="color:#C9A84C;">
+        &larr; Back to Staff
+    </a>
+    <div class="card">
+        <div class="card-body p-4">
+            <h2 class="fw-bold mb-1">Edit Staff Member</h2>
+            <p style="color:#666;font-size:0.85rem;" class="mb-4">
+                Staff ID: <span style="color:#C9A84C;" th:text="${staff.id}"></span>
+            </p>
+            <form th:action="@{/staff/edit/{id}(id=${staff.id})}"
+                  th:object="${staff}" method="post">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" th:field="*{name}" required/>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" th:field="*{email}"/>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Phone</label>
+                        <input type="tel" class="form-control" th:field="*{phone}"/>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Specialization</label>
+                        <select class="form-select" th:field="*{specialization}">
+                            <option value="Hair Stylist">Hair Stylist</option>
+                            <option value="Beautician">Beautician</option>
+                            <option value="Nail Technician">Nail Technician</option>
+                            <option value="Massage Therapist">Massage Therapist</option>
+                            <option value="Receptionist">Receptionist</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" th:field="*{status}">
+                            <option value="ACTIVE">ACTIVE</option>
+                            <option value="INACTIVE">INACTIVE</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Working Hours</label>
+                        <input type="text" class="form-control" th:field="*{workingHours}"/>
+                    </div>
+                    <div class="col-12 mt-2">
+                        <button type="submit" class="btn btn-gold w-100 py-2">
+                            <i class="bi bi-check2 me-2"></i>Save Changes
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body></html>
