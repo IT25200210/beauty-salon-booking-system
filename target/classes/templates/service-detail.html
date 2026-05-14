@@ -9,17 +9,13 @@
         .card { background:#1e1e1e; border:1px solid #333; border-radius:16px; }
         .detail-label { font-size:0.7rem; letter-spacing:2px; text-transform:uppercase; color:#777; }
         .detail-value { font-size:1rem; color:#e8e8e8; font-weight:500; margin-top:4px; }
-        .info-box { background:#252525; border:1px solid rgba(201,168,76,0.3);
-                    border-radius:8px; padding:1rem; margin-top:1rem; }
-        .btn-gold { background:linear-gradient(135deg,#C9A84C,#e8c96a);
-                   color:#1a1a1a; font-weight:600; border:none; }
+        .info-box { background:#252525; border:1px solid rgba(201,168,76,0.3); border-radius:8px; padding:1rem; margin-top:1rem; }
+        .btn-gold { background:linear-gradient(135deg,#C9A84C,#e8c96a); color:#1a1a1a; font-weight:600; border:none; }
     </style>
 </head>
 <body>
 <div class="container py-5" style="max-width:600px;">
-    <a th:href="@{/services}" class="text-decoration-none mb-4 d-block" style="color:#C9A84C;">
-        &larr; Back to Services
-    </a>
+    <a th:href="@{/services}" class="text-decoration-none mb-4 d-block" style="color:#C9A84C;">&larr; Back to Services</a>
     <div class="card">
         <div class="card-body p-4">
             <h2 class="fw-bold mb-4">Service Details</h2>
@@ -50,17 +46,12 @@
                 </div>
             </div>
             <div class="info-box">
-                <div style="font-size:0.7rem;letter-spacing:2px;color:#C9A84C;text-transform:uppercase;">
-                    Service Info (Polymorphism)
-                </div>
+                <div style="font-size:0.7rem;letter-spacing:2px;color:#C9A84C;text-transform:uppercase;">Service Info (Polymorphism)</div>
                 <div style="margin-top:6px;" th:text="${info}"></div>
             </div>
             <div class="d-flex gap-2 mt-4">
-                <a th:href="@{/services/edit/{id}(id=${service.id})}"
-                   class="btn btn-gold">Edit</a>
-                <a th:href="@{/services/delete/{id}(id=${service.id})}"
-                   class="btn btn-outline-danger"
-                   onclick="return confirm('Delete this service?')">Delete</a>
+                <a th:href="@{/services/edit/{id}(id=${service.id})}" class="btn btn-gold">Edit</a>
+                <a th:href="@{/services/delete/{id}(id=${service.id})}" class="btn btn-outline-danger" onclick="return confirm('Delete this service?')">Delete</a>
             </div>
         </div>
     </div>
