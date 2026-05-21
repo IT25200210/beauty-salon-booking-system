@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Edit Feedback | Lumiere</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+        body { background:#141414; color:#e0e0e0; font-family:'Segoe UI',sans-serif; }
+        .card { background:#1e1e1e; border:1px solid #333; border-radius:16px; }
+        .form-label { font-size:0.72rem; letter-spacing:2px; text-transform:uppercase; color:#888; }
+        .form-control,.form-select { background:#2c2c2c; border:1px solid #444;
+            color:#e0e0e0; border-radius:8px; }
+        .form-control:focus,.form-select:focus { background:#2c2c2c; border-color:#C9A84C;
+            color:#fff; box-shadow:0 0 0 3px rgba(201,168,76,0.12); }
+        .form-select option { background:#2c2c2c; }
+        .btn-gold { background:linear-gradient(135deg,#C9A84C,#e8c96a);
+            color:#1a1a1a; font-weight:600; border:none; }
+    </style>
+</head>
+<body>
+<div class="container py-5" style="max-width:600px;">
+    <a th:href="@{/feedback}" class="text-decoration-none mb-4 d-block" style="color:#C9A84C;">
+        &larr; Back to Feedback
+    </a>
+    <div class="card">
+        <div class="card-body p-4">
+            <h2 class="fw-bold mb-1">Edit Feedback</h2>
+            <p style="color:#666;font-size:0.85rem;" class="mb-4">
+                Feedback ID: <span style="color:#C9A84C;" th:text="${feedback.id}"></span>
+            </p>
+            <form th:action="@{/feedback/edit/{id}(id=${feedback.id})}"
+                  th:object="${feedback}" method="post">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label class="form-label">Customer Name</label>
+                        <input type="text" class="form-control" th:field="*{customerName}" required/>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Service</label>
+                        <select class="form-select" th:field="*{serviceName}">
+                            <option value="Haircut">Haircut</option>
+                            <option value="Hair Coloring">Hair Coloring</option>
+                            <option value="Facial">Facial</option>
+                            <option value="Manicure">Manicure</option>
+                            <option value="Pedicure">Pedicure</option>
+                            <option value="Massage">Massage</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Rating</label>
+                        <select class="form-select" th:field="*{rating}">
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Good</option>
+                            <option value="3">3 - Average</option>
+                            <option value="2">2 - Poor</option>
+                            <option value="1">1 - Very Poor</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" th:field="*{status}">
+                            <option value="VISIBLE">VISIBLE</option>
+                            <option value="HIDDEN">HIDDEN</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Comment</label>
+                        <textarea class="form-control" th:field="*{comment}" rows="4"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Date</label>
+                        <input type="date" class="form-control" th:field="*{feedbackDate}" required/>
+                    </div>
+                    <div class="col-12 mt-2">
+                        <button type="submit" class="btn btn-gold w-100 py-2">
+                            <i class="bi bi-check2 me-2"></i>Save Changes
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body></html>
+
